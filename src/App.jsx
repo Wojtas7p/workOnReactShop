@@ -3,43 +3,59 @@ import { useState } from 'react';
 import Img from './Img/Mademe.png';
 import './App.css';
 import Button from './button';
-import Discryption from './Description'
+import Discryption from './Description';
 import description from './Description/description';
+import ImageOn from './Img/Mademe_Widok_Produktu.png';
 
 
 
 
 const Images = () =>
   (
-      <div>
-    
-        <a href='https://Img/Mademe.png'>
+    <div>
+      <a href='https://Img/Mademe.png'>
         <img src={Img} style={{width:100}}/>
       </a>
     <h1>Kurs React workOn</h1>
    </div>
   );
 
+const OnImage = () => 
+(
+  <div>
+    <img src={ImageOn} style={{width:200, marginTop:10}}/>
+  </div>  
+);
+
+const descriptionButton = {
+  buttonOnTitle:"Włącz Img",
+  buttonOffTitle:"Wyłącz Img",
+};
 
 
 function App() {
 
   const [descriptions, setDescription] = useState("");
-
-
+  const [descriptionsImg, setDescriptionImg] = useState(false);
 
 
 
   const changeDiscription = (descriptionKey) => {
   setDescription(descriptionKey);   
   }
+
+  
+  const changeImage = (descriptionKey) => {
+    setDescriptionImg(descriptionKey);   
+    }
+
+
     return (
     <>
     <Images/>
     
       <div></div>
       
-      <Button onClick = {() => changeDiscription('first')} isActive={descriptions === 'first'}>Włącz/Wyłącz</Button>
       <h1>Vite + React</h1>
 
       <Button onClick = {() => changeDiscription('first')} isActive={descriptions === 'first'}>first</Button>
@@ -53,14 +69,17 @@ function App() {
 
           ) : (<p>Zaczynaj klikanie</p>)
         } */}
-
         {descriptions && <Discryption>{description[descriptions]}</Discryption>}
         {!descriptions && <p>Zaczynaj klikanie</p>}  
 
-
         </div>
-        <p>jniech pokazuje i zamyka zdjęcie</p>
+   
+        <Button onClick = {() => changeImage(descriptionsImg === ' ' ? null : ' ')}  onActive={descriptionsImg === ' '}>
+        {descriptionsImg === ' ' ? descriptionButton.buttonOffTitle : descriptionButton.buttonOnTitle}
+        </Button>
           
+        {(descriptionsImg && <OnImage/>)}
+        {!descriptionsImg && <p></p>} 
     </>
   );
 };
