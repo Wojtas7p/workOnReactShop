@@ -39,6 +39,7 @@ function App() {
 
   const changeDiscription = (descriptionKey) => {
   setDescription(descriptionKey);   
+  setDescriptionImg(false)
   }
 
   const imageEl = {
@@ -56,10 +57,10 @@ function App() {
       
       <h1>Vite + React</h1>
       
-      <Button onClick = {() => {changeDiscription('first'); setDescriptionImg(false) } } isActive={descriptions === 'first'}>first</Button>
-      <Button onClick = {() => {changeDiscription('second'); setDescriptionImg(false)}} isActive={descriptions === 'second'}>second</Button>
-      <Button onClick = {() => {changeDiscription('third'); setDescriptionImg(false)}} isActive={descriptions === 'third'}>third</Button>
-      <Button onClick = {() => {changeDiscription('fourth'); setDescriptionImg(false)}} isActive={descriptions === 'fourth'}>fourth</Button>
+      <Button onClick = {() => changeDiscription('first')} isActive={descriptions === 'first'}>first</Button>
+      <Button onClick = {() => changeDiscription('second')} isActive={descriptions === 'second'}>second</Button>
+      <Button onClick = {() => changeDiscription('third')} isActive={descriptions === 'third'}>third</Button>
+      <Button onClick = {() => changeDiscription('fourth')} isActive={descriptions === 'fourth'}>fourth</Button>
       <div className="card"></div> 
       <div>
         {/* {
@@ -68,7 +69,6 @@ function App() {
           ) : (<p>Zaczynaj klikanie</p>)
         } */}
         {descriptions && <Discryption>{description[descriptions]} 
-       
 
         <p>
           <Button onClick={() => setDescriptionImg(!descriptionsImg)} onActive={descriptionsImg}>
