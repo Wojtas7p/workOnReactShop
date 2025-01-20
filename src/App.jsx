@@ -83,26 +83,7 @@ function App() {
 
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-   
-        {/* <Button onClick = {() => changeImage(descriptionsImg === ' ' ? null : ' ')}  onActive={descriptionsImg === ' '}>
-        {descriptionsImg === ' ' ? descriptionButton.buttonOffTitle : descriptionButton.buttonOnTitle}
-        </Button>
-          
-        {(descriptionsImg && <OnImage/>)}
-        {!descriptionsImg && <p></p>}  */}
-    </>
+   </>
   );
 };
 
