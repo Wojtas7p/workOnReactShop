@@ -5,12 +5,6 @@ import './App.css';
 import Button from './button';
 import Discryption from './Description';
 import description from './Description/description';
-import ImageC1 from './Img/case01.png';
-import ImageC2 from './Img/case02.png';
-import ImageC3 from './Img/case03.png';
-import ImageC4 from './Img/case04.png';
-
-
 
 
 const Images = () =>
@@ -21,11 +15,6 @@ const Images = () =>
       </a>
    </div>
   );
-
-const OnImage = ({ImageOn}) => 
-(
-   <img src={ImageOn} style={{width: 200}}/>  
-);
 
 const descriptionButton = {
   buttonOnTitle:"Pokaż",
@@ -42,13 +31,6 @@ function App() {
   setDescriptionImg(false)
   }
 
-  const imageEl = {
-    first: ImageC1,
-    second: ImageC2,
-    third: ImageC3,
-    fourth: ImageC4,
-  }
- 
     return (
     <>
     <Images/>
@@ -68,7 +50,7 @@ function App() {
 
           ) : (<p>Zaczynaj klikanie</p>)
         } */}
-        {descriptions && <Discryption>{description[descriptions]} 
+        {descriptions && (<Discryption>{description[descriptions].text} 
 
         <p>
           <Button onClick={() => setDescriptionImg(!descriptionsImg)} onActive={descriptionsImg}>
@@ -76,11 +58,13 @@ function App() {
           </Button>
         </p>
       
-          {descriptionsImg && descriptions && (<OnImage ImageOn={imageEl[descriptions]} />)}
+          {descriptionsImg && descriptions && (<Discryption imgEl={description[descriptions].imgEl} />)}
           {!descriptionsImg && <p>Obraz wyłączony</p>}
 
-       </Discryption>}
+       </Discryption>
+      )}
 
+       
         </div>
 
    </>
